@@ -38,7 +38,7 @@ const tableInfo = [
 ]
 
 // pegando uma referência ao corpo da tabela (onde inserir os itens)
-const tbody = document.querySelector("#minha-linda-tabela > tbody")
+const totalsRow = document.querySelector("#minha-linda-tabela > tbody #tabela-total")
 
 // criando o HTML correspondente
 tableInfo
@@ -47,8 +47,8 @@ tableInfo
       <th scope="row">${id+1}</th>
       <td>${item.nome}</td>
       <td>${item.tipo}</td>
-      <td>${item.valor > 0 ? "" : "- "}R$${Math.abs(item.valor.toFixed(2))}<t>
+      <td>${item.valor.toFixed(2)}</td>
     </tr>
   `)
   // inserindo o html na posição certa
-  .forEach(item => tbody.insertAdjacentHTML('beforeend', item))
+  .forEach(item => totalsRow.insertAdjacentHTML('beforebegin', item))
